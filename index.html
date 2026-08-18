@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yak &amp; Berry — Highland Dairy Co. | Mithu Kitchen Pvt. Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Public+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF6EC;
+  --milk:#FFFDF8;
+  --ink:#241E1B;
+  --ink-soft:#5B5049;
+  --berry-deep:#5E1B3E;
+  --berry-bright:#C43D74;
+  --brass:#AD7A25;
+  --slate:#211C1D;
+  --slate-soft:#2E2628;
+  --line:rgba(36,30,27,0.14);
+  --radius-lg:28px;
+  --radius-sm:14px;
+  --shadow: 0 18px 40px -20px rgba(36,20,20,0.35);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Public Sans', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  margin:0;
+}
+p{margin:0;}
+a{color:inherit; text-decoration:none;}
+.eyebrow{
+  font-family:'Space Mono', monospace;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.72rem;
+  font-weight:700;
+  color:var(--berry-deep);
+}
+.eyebrow.on-dark{color:#E8B8CB;}
+.wrap{
+  max-width:1220px;
+  margin:0 auto;
+  padding:0 32px;
+}
+@media(max-width:640px){ .wrap{padding:0 20px;} }
+
+/* ---------- NAV ---------- */
+header.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:#FBF6EC;
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1220px; margin:0 auto; padding:14px 32px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brandmark{display:flex; align-items:center; gap:10px; color:var(--berry-deep);}
+.brandmark svg{width:38px; height:38px; display:block;}
+.brand-word{font-family:'Fraunces',serif; font-weight:700; font-size:1.05rem; letter-spacing:0.02em; color:var(--ink);}
+.brand-word small{display:block; font-family:'Space Mono',monospace; font-weight:400; font-size:0.55rem; letter-spacing:0.12em; color:var(--ink-soft); margin-top:1px;}
+nav.links{display:flex; gap:30px; align-items:center;}
+nav.links a{
+  font-size:0.86rem; font-weight:600; color:var(--ink-soft);
+  padding:6px 2px; position:relative;
+}
+nav.links a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background:var(--berry-bright); transform:scaleX(0); transform-origin:left;
+  transition:transform .25s ease;
+}
+nav.links a:hover::after{transform:scaleX(1);}
+.nav-cta{
+  font-family:'Space Mono',monospace; font-size:0.72rem; font-weight:700;
+  letter-spacing:0.06em; text-transform:uppercase;
+  background:var(--ink); color:var(--milk);
+  padding:11px 20px; border-radius:100px;
+  display:inline-block; transition:background .2s ease, transform .2s ease;
+}
+.nav-cta:hover{background:var(--berry-deep); transform:translateY(-1px);}
+.burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;}
+.burger span{width:22px; height:2px; background:var(--ink); display:block;}
+@media(max-width:880px){
+  nav.links{
+    position:fixed; top:66px; left:0; right:0; bottom:0;
+    background:var(--cream); flex-direction:column; align-items:flex-start;
+    padding:30px 28px; gap:22px; transform:translateX(100%);
+    transition:transform .3s ease; overflow-y:auto;
+  }
+  nav.links.open{transform:translateX(0);}
+  nav.links a{font-size:1.1rem;}
+  .burger{display:flex;}
+  .nav-cta{margin-top:10px;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  padding:158px 0 90px;
+  overflow:hidden;
+  background: url('assets/hero-bg.jpg') center/cover no-repeat;
+  background-color: var(--cream);
+  opacity: 1;
+}
+.hero .wrap{
+  display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:center;
+  position:relative; z-index:2;
+}
+@media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;} }
+.hero h1{
+  font-size:clamp(2.6rem, 6vw, 4.6rem);
+  line-height:0.98;
+  color:var(--ink);
+}
+.hero h1 em{
+  font-style:italic; color:var(--berry-deep); font-weight:500;
+}
+.hero-sub{
+  margin-top:26px; max-width:480px;
+  font-size:1.08rem; line-height:1.6; color:var(--ink-soft);
+}
+.hero-actions{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+.btn{
+  font-family:'Space Mono',monospace; font-size:0.76rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:0.06em;
+  padding:15px 26px; border-radius:100px; display:inline-flex; align-items:center; gap:8px;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-primary{background:var(--berry-deep); color:var(--milk);}
+.btn-primary:hover{background:var(--berry-bright); transform:translateY(-2px); box-shadow:var(--shadow);}
+.btn-ghost{border:1.5px solid var(--ink); color:var(--ink);}
+.btn-ghost:hover{background:var(--ink); color:var(--milk);}
+.btn-whatsapp{background:#25D366; color:#000000;}
+.btn-whatsapp:hover{background:#20bd5a; color:#000000; transform:translateY(-2px); box-shadow:var(--shadow);}
+.hero-visual{position:relative; display:flex; align-items:center; justify-content:center;}
+.hero-img{width:100%; max-width:400px; border-radius:var(--radius-lg); object-fit:cover; position:relative; z-index:2; box-shadow:var(--shadow);}
+.hero-ring{
+  position:absolute; inset:0; margin:auto; width:min(100%,420px); height:min(100%,420px);
+  border:1.5px dashed var(--brass); border-radius:50%; opacity:1;
+  animation:spin 40s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.mountains{
+  position:absolute; left:0; right:0; bottom:-2px; width:100%; height:auto;
+  color:var(--berry-deep); opacity:0.12; z-index:1;
+}
+
+/* ---------- MARQUEE ---------- */
+.marquee-band{
+  background:var(--ink); color:var(--cream);
+  padding:16px 0; overflow:hidden; white-space:nowrap;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.marquee-track{display:inline-flex; gap:40px; animation:scroll 32s linear infinite;}
+@keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+.marquee-track span{
+  font-family:'Space Mono',monospace; font-size:0.82rem; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--cream); opacity:1;
+  display:inline-flex; align-items:center; gap:40px;
+}
+.marquee-track span::after{content:"◆"; color:var(--brass); font-size:0.6rem;}
+
+/* ---------- STORY / PILLARS ---------- */
+.pillars{padding:100px 0 40px;}
+.section-head{max-width:640px; margin-bottom:56px;}
+.section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem); margin-top:10px;}
+.section-head p{margin-top:16px; color:var(--ink-soft); font-size:1.02rem; line-height:1.6;}
+.pillar-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+@media(max-width:820px){.pillar-grid{grid-template-columns:1fr;}}
+.pillar{
+  background:var(--milk); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:34px 28px;
+}
+.pillar-num{font-family:'Space Mono',monospace; font-size:0.72rem; color:var(--brass); font-weight:700;}
+.pillar h3{font-size:1.3rem; margin-top:14px;}
+.pillar p{margin-top:10px; color:var(--ink-soft); font-size:0.95rem; line-height:1.6;}
+
+/* ---------- PRODUCT SECTIONS ---------- */
+.section{padding:100px 0;}
+.section.dark{background:var(--slate); color:var(--cream);}
+.section.dark .ink-soft{color:#CFC3BE;}
+.section.tint{background:linear-gradient(180deg, var(--cream), #F6ECD9 60%, var(--cream));}
+.section-head.on-dark p{color:#C9BDB7;}
+
+.card-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+}
+@media(max-width:920px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr;}}
+
+.flavor-card{
+  background:var(--milk); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:20px; display:flex; flex-direction:column; gap:16px;
+  transition:transform .28s ease, box-shadow .28s ease;
+  opacity:1; transform:translateY(0);
+}
+.flavor-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+.section.dark .flavor-card{background:var(--slate-soft); border-color:rgba(255,255,255,0.08);}
+
+.card-img{
+  width:100%; height:200px; object-fit:cover; border-radius:var(--radius-sm);
+}
+.flavor-top{display:flex; align-items:center; gap:16px;}
+.flavor-name{font-family:'Fraunces',serif; font-size:1.18rem; font-weight:600; line-height:1.15;}
+.flavor-tag{font-family:'Space Mono',monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-top:4px; display:block;}
+.flavor-note{font-size:0.92rem; line-height:1.55; color:var(--ink-soft);}
+.section.dark .flavor-note{color:#C9BDB7;}
+
+/* Hydrator */
+.hydrate-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+@media(max-width:760px){.hydrate-grid{grid-template-columns:1fr;}}
+.hydrate-card{
+  border-radius:var(--radius-lg); padding:24px; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:space-between; gap:20px;
+  color:var(--milk); opacity:1;
+}
+.hydrate-card h3{font-size:1.7rem; color:var(--milk);}
+.hydrate-card .flavor-note{color:rgba(255,255,255,0.88);}
+.hydrate-card .card-img{height:220px;}
+.hydrate-orange{background:linear-gradient(150deg,#E8631A,#F0A83C);}
+.hydrate-lime{background:linear-gradient(150deg,#6E8B22,#B4CE4E);}
+
+/* Protein */
+.can-row{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+@media(max-width:760px){.can-row{grid-template-columns:1fr;}}
+.can-card{
+  background:var(--milk); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:20px; text-align:center; display:flex; flex-direction:column; gap:14px;
+  opacity:1;
+}
+.can-card .card-img{height:220px;}
+.can-card .flavor-name{margin-top:2px;}
+.pg-line{font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--brass); margin-top:6px; display:block;}
+
+/* Ribbon */
+.ribbon{
+  padding:64px 0; text-align:center; background:var(--berry-deep); color:var(--cream);
+  position:relative; overflow:hidden;
+}
+.ribbon h3{font-size:clamp(1.5rem,3vw,2.1rem); max-width:760px; margin:0 auto; line-height:1.3;}
+.ribbon .eyebrow{color:#E8B8CB; margin-bottom:14px; display:block;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink); color:var(--cream); padding:80px 0 30px; position:relative; overflow:hidden;}
+.footer-top{display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:40px; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,0.12);}
+@media(max-width:820px){.footer-top{grid-template-columns:1fr 1fr; row-gap:36px;}}
+@media(max-width:520px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand .brandmark{color:#EAD9A8;}
+.footer-brand .brand-word{color:var(--cream);}
+.footer-brand p{margin-top:16px; color:#C9BDB7; font-size:0.92rem; line-height:1.6; max-width:280px;}
+.footer-col h4{font-family:'Space Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--brass); margin-bottom:16px;}
+.footer-col a, .footer-col p{display:block; color:#C9BDB7; font-size:0.9rem; margin-bottom:10px;}
+.footer-col a:hover{color:var(--cream);}
+.newsletter{display:flex; gap:10px; margin-top:6px; flex-wrap:wrap;}
+.newsletter input{
+  flex:1; min-width:150px; background:transparent; border:1px solid rgba(255,255,255,0.25); border-radius:100px;
+  padding:12px 16px; color:var(--cream); font-family:'Public Sans',sans-serif; font-size:0.88rem;
+}
+.newsletter input::placeholder{color:#8A7D77;}
+.newsletter button{
+  font-family:'Space Mono',monospace; font-size:0.72rem; font-weight:700; text-transform:uppercase;
+  background:var(--berry-bright); color:var(--cream); border:none; border-radius:100px; padding:12px 20px; cursor:pointer;
+  transition:background .2s ease;
+}
+.newsletter button:hover{background:var(--berry-deep);}
+.footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; flex-wrap:wrap; gap:12px;}
+.footer-bottom p{color:#8A7D77; font-size:0.8rem;}
+.badges{display:flex; gap:10px; flex-wrap:wrap;}
+.badge{
+  font-family:'Space Mono',monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em;
+  border:1px solid rgba(255,255,255,0.2); border-radius:100px; padding:7px 14px; color:#C9BDB7;
+}
+
+:focus-visible{outline:2.5px solid var(--berry-bright); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="mtn" viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <path fill="currentColor" d="M0,200 L0,140 L120,40 L210,110 L330,10 L430,90 L560,20 L640,120 L760,50 L860,130 L980,30 L1080,100 L1200,60 L1200,200 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brandmark">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="27" stroke="currentColor" stroke-width="2"/>
+        <path d="M16,26 Q19,9 25,22 M44,26 Q41,9 35,22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <text x="30" y="40" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="15" fill="currentColor">Y&amp;B</text>
+      </svg>
+      <span class="brand-word">Yak &amp; Berry<small>HIGHLAND DAIRY CO. · MITHU KITCHEN</small></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#story">Our Craft</a>
+      <a href="#yogurt">Greek Yogurt</a>
+      <a href="#creamer">Coffee Creamer</a>
+      <a href="#hydrator">Hydrator</a>
+      <a href="#protein">Protein</a>
+      <a href="#footer" class="nav-cta">Find Us</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="mountains" viewBox="0 0 1200 200" preserveAspectRatio="none"><use href="#mtn"/></svg>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Highland Dairy Co. · A Division of Mithu Kitchen Pvt. Ltd.</span>
+        <h1 style="margin-top:16px;">Rich by nature.<br><em>Crafted with care.</em></h1>
+        <p class="hero-sub">Yak &amp; Berry starts where the milk runs richer — high alpine pasture — and finishes with wild berries picked at their peak. Produced by Highland Dairy Co. under Mithu Kitchen Pvt. Ltd., we offer slow-cultured cream and real fruit with zero shortcuts.</p>
+        <div class="hero-actions">
+          <a href="#yogurt" class="btn btn-primary">Explore the Lineup</a>
+          <a href="https://wa.me/9779808261761" target="_blank" rel="noopener" class="btn btn-whatsapp">Chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-ring" aria-hidden="true"></div>
+        <img src="assets/mixed-berry-yogurt.png" alt="Mixed Alpine Berry Yogurt" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Highland Dairy Co.<span>Mithu Kitchen Pvt. Ltd.</span><span>Wild Blueberries</span><span>Alpine Milk</span><span>Toasted Hazelnut</span><span>Espresso Bean</span><span>Real Mango</span><span>Salted Caramel</span></span>
+      <span>Highland Dairy Co.<span>Mithu Kitchen Pvt. Ltd.</span><span>Wild Blueberries</span><span>Alpine Milk</span><span>Toasted Hazelnut</span><span>Espresso Bean</span><span>Real Mango</span><span>Salted Caramel</span></span>
+    </div>
+  </div>
+
+  <!-- STORY / PILLARS -->
+  <section class="pillars wrap" id="story">
+    <div class="section-head">
+      <span class="eyebrow">Our Craft</span>
+      <h2>Three things we never compromise on.</h2>
+      <p>Brought to you by Highland Dairy Co. under the management of Mithu Kitchen Pvt. Ltd., every cup, carton, and can traces back to our highland philosophy: source honestly, culture slowly, and sweeten with real fruit.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <span class="pillar-num">Highland Milk</span>
+        <h3>Cream that starts richer</h3>
+        <p>Our dairy comes from herds grazed on mineral-rich alpine pasture, giving every batch a naturally fuller, creamier body before we add a single ingredient.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Wildcrafted Berries</span>
+        <h3>Fruit picked at its peak</h3>
+        <p>Strawberries, blackberries, and wild blueberries are folded in ripe — never from concentrate — so every swirl tastes like the berry it came from.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Slow-Cultured</span>
+        <h3>No shortcuts, ever</h3>
+        <p>We give our cultures the time they need. It's slower than the industry standard, and it's the reason our yogurt holds its thickness, spoon after spoon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GREEK YOGURT -->
+  <section class="section tint" id="yogurt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The Lineup — Greek Yogurt</span>
+        <h2>Nine ways to swirl.</h2>
+        <p>Thick, strained, and packed with protein — each flavor is built around one real ingredient, not a list of them.</p>
+      </div>
+      <div class="card-grid" id="yogurtGrid"></div>
+    </div>
+  </section>
+
+  <!-- COFFEE CREAMER -->
+  <section class="section dark" id="creamer">
+    <div class="wrap">
+      <div class="section-head on-dark">
+        <span class="eyebrow on-dark">The Lineup — Coffee Creamer</span>
+        <h2>Built for the pour, not the powder.</h2>
+        <p class="ink-soft">Four creamers, four moods — every one made with real cream and nothing that needs explaining on the label.</p>
+      </div>
+      <div class="card-grid" id="creamerGrid"></div>
+    </div>
+  </section>
+
+  <!-- HYDRATOR -->
+  <section class="section" id="hydrator">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The Lineup — Yak &amp; Berry Hydrator</span>
+        <h2>Rehydration, uncomplicated.</h2>
+        <p>Two electrolyte drinks, built for the moment right after you need them — workouts, hikes, or just a hot day at altitude.</p>
+      </div>
+      <div class="hydrate-grid" id="hydratorGrid"></div>
+    </div>
+  </section>
+
+  <!-- RIBBON -->
+  <div class="ribbon">
+    <div class="wrap">
+      <span class="eyebrow">Highland Dairy Co. · One Herd. One Harvest. One Standard.</span>
+      <h3>Every product in the lineup is cultured, blended, and bottled to the same rule: if it's not something you'd recognize in your own kitchen, it doesn't go in the batch.</h3>
+    </div>
+  </div>
+
+  <!-- PROTEIN -->
+  <section class="section tint" id="protein">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The Lineup — High Protein Drinks</span>
+        <h2>Fuel that still tastes like a treat.</h2>
+        <p>Ready-to-drink protein built on our same highland cream base — grab-and-go, without the chalky aftertaste.</p>
+      </div>
+      <div class="can-row" id="proteinGrid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brandmark">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+            <circle cx="30" cy="30" r="27" stroke="currentColor" stroke-width="2"/>
+            <path d="M16,26 Q19,9 25,22 M44,26 Q41,9 35,22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="30" y="40" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="15" fill="currentColor">Y&amp;B</text>
+          </svg>
+          <span class="brand-word">Yak &amp; Berry</span>
+        </a>
+        <p>Highland Dairy Co. is a specialized dairy brand under Mithu Kitchen Pvt. Ltd. Crafting slow-cultured food, wild berries, and rich highland dairy with care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Lineup</h4>
+        <a href="#yogurt">Greek Yogurt</a>
+        <a href="#creamer">Coffee Creamer</a>
+        <a href="#hydrator">Hydrator</a>
+        <a href="#protein">Protein Drinks</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact &amp; Wholesale</h4>
+        <a href="mailto:yakandberry@gmail.com">Email: yakandberry@gmail.com</a>
+        <a href="https://wa.me/9779808261761" target="_blank" rel="noopener">WhatsApp: +977 9808261761</a>
+        <p style="margin-top:10px;">Mithu Kitchen Pvt. Ltd.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Stay in the loop</h4>
+        <p style="margin-bottom:14px;">New flavors, restocks, and highland stories — no more than once a month.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+          <input type="email" placeholder="you@email.com" required aria-label="Email address">
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Highland Dairy Co. / Mithu Kitchen Pvt. Ltd. All rights reserved.</p>
+      <div class="badges">
+        <span class="badge">Slow-Cultured</span>
+        <span class="badge">Real Fruit</span>
+        <span class="badge">Mithu Kitchen Brand</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const yogurt = [
+  {name:"Classic Vanilla Bean", tag:"Original", note:"Smooth, creamy base infused with natural vanilla pod speckles.", image:"assets/vanilla-yogurt.png"},
+  {name:"Fresh Strawberry", tag:"Fruit-Forward", note:"Light pink swirl garnished with ripe strawberry slices.", image:"assets/strawberry-yogurt.png"},
+  {name:"Wild Blueberry", tag:"Fruit-Forward", note:"Rich purple swirl topped with whole fresh blueberries.", image:"assets/blueberry-yogurt.png"},
+  {name:"Blackberry Bliss", tag:"Fruit-Forward", note:"Deep berry swirl surrounded by fresh blackberries.", image:"assets/blackberry-yogurt.png"},
+  {name:"Tropical Mango", tag:"Fruit-Forward", note:"Vibrant golden swirl paired with diced fresh mango chunks.", image:"assets/mango-yogurt.png"},
+  {name:"Salted Caramel", tag:"Indulgent", note:"Rich caramel swirl topped with butterscotch chips and caramel drizzle.", image:"assets/caramel-yogurt.png"},
+  {name:"Espresso / Mocha Chocolate", tag:"Indulgent", note:"Deep coffee-infused swirl topped with chocolate drizzle, curls, and espresso beans.", image:"assets/espresso-yogurt.png"},
+  {name:"Chocolate Muffin Crunch", tag:"Indulgent", note:"Decadent chocolate swirl topped with crumbled chocolate muffin pieces.", image:"assets/muffin-crunch-yogurt.png"},
+  {name:"Mixed Alpine Berry", tag:"Signature", note:"Signature pink-purple swirl topped with a blend of kiwi, strawberries, mango, and mixed berries.", image:"assets/mixed-berry-yogurt.png"}
+];
+
+const creamer = [
+  {name:"Vanilla", tag:"Smooth. Rich. Pure.", note:"Classic cream finish infused with real vanilla bean.", image:"assets/vanilla-creamer.png"},
+  {name:"Hazelnut", tag:"Smooth. Rich. Nutty.", note:"Warm, toasted hazelnut flavor for a smooth, roasted coffee pair.", image:"assets/hazelnut-creamer.png"},
+  {name:"Chocolate", tag:"Smooth. Rich. Indulgent.", note:"Creamy cocoa blend designed for rich mocha coffee drinks.", image:"assets/chocolate-creamer.png"},
+  {name:"Matcha", tag:"Smooth. Rich. Balanced.", note:"Earthy green tea cream for specialty matcha lattes and iced brews.", image:"assets/matcha-creamer.png"}
+];
+
+const hydrator = [
+  {name:"Orange Hydrator", tag:"Vibrant Electric Orange", note:"Citrusy, high-energy recovery drink for workouts and daily activity.", css:"hydrate-orange", image:"assets/orange-hydrator.png"},
+  {name:"Lemon Lime Hydrator", tag:"Crisp Zesty Green", note:"Clean, sharp, thirst-quenching taste for immediate rehydration.", css:"hydrate-lime", image:"assets/lemon-lime-hydrator.png"}
+];
+
+const protein = [
+  {name:"Matcha Protein", note:"Wildflower matcha blended into our high-protein cream base for a balanced, earthy lift.", image:"assets/matcha-protein.png"},
+  {name:"Hazelnut Protein", note:"Toasted hazelnut and highland cream, built for a mid-day refuel that still tastes indulgent.", image:"assets/hazelnut-protein.png"},
+  {name:"Chocolate Protein", note:"Deep cocoa and 20g of protein per can — dessert-adjacent, gym-bag ready.", image:"assets/chocolate-protein.png"}
+];
+
+function renderYogurtLike(list, gridId){
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = list.map(f => `
+    <article class="flavor-card">
+      <img src="${f.image}" alt="${f.name}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Image+Not+Found'">
+      <div class="flavor-top">
+        <div>
+          <span class="flavor-tag">${f.tag}</span>
+          <h3 class="flavor-name">${f.name}</h3>
+        </div>
+      </div>
+      <p class="flavor-note">${f.note}</p>
+    </article>
+  `).join("");
+}
+
+function renderHydrator(){
+  const grid = document.getElementById("hydratorGrid");
+  grid.innerHTML = hydrator.map(f => `
+    <article class="hydrate-card ${f.css}">
+      <img src="${f.image}" alt="${f.name}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Image+Not+Found'">
+      <div>
+        <span class="eyebrow on-dark" style="color:rgba(255,255,255,0.85); display:block; margin-bottom:6px;">${f.tag}</span>
+        <h3>${f.name}</h3>
+        <p class="flavor-note" style="margin-top:8px;">${f.note}</p>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderProtein(){
+  const grid = document.getElementById("proteinGrid");
+  grid.innerHTML = protein.map(f => `
+    <article class="can-card">
+      <img src="${f.image}" alt="${f.name}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Image+Not+Found'">
+      <div>
+        <h3 class="flavor-name">${f.name}</h3>
+        <p class="flavor-note" style="margin-top:6px;">${f.note}</p>
+        <span class="pg-line">20g Protein · Ready to Drink</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+renderYogurtLike(yogurt, "yogurtGrid");
+renderYogurtLike(creamer, "creamerGrid");
+renderHydrator();
+renderProtein();
+
+const burger = document.getElementById("burgerBtn");
+const navLinks = document.getElementById("navLinks");
+burger.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open);
+});
+navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  navLinks.classList.remove("open");
+  burger.setAttribute("aria-expanded", false);
+}));
+</script>
+</body>
+</html>
